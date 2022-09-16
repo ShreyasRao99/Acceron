@@ -1,0 +1,77 @@
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form-group">
+          <label for="Vname">Village Name</label>
+          <input type="text" formControlName="vname" id="Vname" class="form-control mb-2" placeholder="Enter Village Name">
+          <div *ngIf="f['vname'].touched && f['vname'].invalid">
+            <div *ngIf="f['vname'].errors && f['vname'].errors['required']">
+                <span style="color:red;">Name is required</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="GramPanch">Gram Panchayat</label>
+          <input type="text" formControlName="gram" id="GramPanch" class="form-control mb-2" placeholder="Gram Panchayat name">
+          <div *ngIf="f['gram'].touched && f['gram'].invalid">
+            <div *ngIf="f['gram'].errors && f['gram'].errors['required']">
+                <span style="color:red;">Name is required</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="FamilyHead">Family Head</label>
+            <input type="password" formControlName="fhead" id="FamilyHead" class="form-control mb-2" placeholder="Family Head Name">
+          </div>
+          <div class="row">
+            <div class="col">
+                <label for="contact">Contact</label>
+              <input type="text" formControlName="contact" id="contact" class="form-control mb-2" placeholder="Contact">
+            </div>
+            <div class="col">
+            <label for="age">Age</label>
+              <input type="number" formControlName="age" id="age" class="form-control mb-2" placeholder="Age">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+                <label for="business">Business</label>
+              <input type="text" formControlName="business" formControlName="business" id="business" class="form-control mb-2" placeholder="business">
+            </div>
+            <div class="col">
+            <label for="age">Education</label>
+              <input type="text" formControlName="education" id="education" class="form-control mb-2" placeholder="Education">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+                <label for="members">Total Members in the family</label>
+              <input type="text" formControlName="members" id="members" class="form-control mb-2" placeholder="Total Members">
+            </div>
+          </div>
+        <button class="btn btn-primary">Submit</button>
+      </form>
+
+      <p>{{villagedata.members}}</p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Education</th>
+            <th scope="col">Business</th>
+            <th scope="col">Contact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in villagedata.members">
+            <th>1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>Mark</td>
+            <td>Mark</td>
+          </tr>
+        </tbody>
+      </table>
